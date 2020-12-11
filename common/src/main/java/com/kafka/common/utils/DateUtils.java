@@ -1,4 +1,4 @@
-package com.kafka.common.util;
+package com.kafka.common.utils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

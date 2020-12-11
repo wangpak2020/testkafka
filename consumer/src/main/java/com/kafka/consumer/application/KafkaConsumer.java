@@ -1,7 +1,7 @@
 package com.kafka.consumer.application;
 
 import com.kafka.common.constant.KafkaTopicConstant;
-import com.kafka.common.util.DateUtils;
+import com.kafka.common.utils.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;

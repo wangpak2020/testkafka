@@ -1,6 +1,6 @@
 package com.kafka.producer.infrastructure.kafka;
 
-import com.kafka.common.util.DateUtils;
+import com.kafka.common.utils.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.ListenableFutureCallback;
