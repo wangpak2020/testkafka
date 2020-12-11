@@ -10,11 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <p>
  * 服务监控检查
- * </p>
  *
- * @author vincent.li
+ * @author wangb
  * @since 2020-06-09
  */
 @Slf4j
@@ -49,7 +47,7 @@ public class HealthCheckController {
     @ResponseBody
     public Map<String, Object> healthCheck() {
         Map<String, Object> map = new HashMap<>();
-        map.put("message", "pong!");
+        map.put("message", "pong");
         map.put("applicationName", applicationName);
         map.put("serverPort", serverPort);
         return map;
