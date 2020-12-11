@@ -10,21 +10,23 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 /**
- * @author vincent.li
+ * @author wangb
  */
 @Component
 @Slf4j
 public class KafkaConsumer {
 
     @KafkaListener(topics = {KafkaTopicConstant.TEST_TOPIC_NAME})
-    public void listen(ConsumerRecord<?, ?> record) {
+    public void listen(ConsumerRecord<?, ?> record) throws Exception {
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
-        log.info("接收时间:{}", DateUtils.getNowDate());
-        if (kafkaMessage.isPresent()) {
-            Object message = kafkaMessage.get();
-            log.info(KafkaTopicConstant.TEST_TOPIC_NAME + "----------------- record==>{}", record);
-            log.info(KafkaTopicConstant.TEST_TOPIC_NAME + "------------------ message==>{}", message);
+
+        if (!kafkaMessage.isPresent()) {
+            throw new Exception("Consumer监听的消息为空值");
         }
+        log.info("Consumer接收时间:{}", DateUtils.getNowDate());
+        Object message = kafkaMessage.get();
+        log.info("topic:{},record={}", KafkaTopicConstant.TEST_TOPIC_NAME, record);
+        log.info("topic:{},message={}", KafkaTopicConstant.TEST_TOPIC_NAME, message);
 
     }
 }
