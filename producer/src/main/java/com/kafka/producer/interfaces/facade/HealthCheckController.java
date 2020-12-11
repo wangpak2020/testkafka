@@ -11,6 +11,7 @@ import java.util.Map;
 
 /**
  * 服务监控检查
+ *
  * @author wangb
  * @since 2020-06-09
  */
@@ -22,6 +23,8 @@ public class HealthCheckController {
     private String serverPort;
     @Value("${spring.application.name}")
     private String applicationName;
+    @Value("${spring.profiles.active}")
+    private String profilesActive;
 
 
     /**
@@ -49,6 +52,7 @@ public class HealthCheckController {
         map.put("message", "pong");
         map.put("applicationName", applicationName);
         map.put("serverPort", serverPort);
+        map.put("profilesActive", profilesActive);
         return map;
     }
 
