@@ -26,4 +26,15 @@ public class MessageController {
         return Response.newResponse().OK();
     }
 
+
+    @GetMapping(value = "/sendInfo")
+    public Response send() {
+        try {
+            kafkaProducer.send();
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return Response.newResponse().error(e);
+        }
+        return Response.newResponse().OK();
+    }
 }
